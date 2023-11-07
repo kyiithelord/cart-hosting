@@ -1,5 +1,5 @@
 import Swal from "sweetalert2";
-import { app, calculateTotalAmount, cartBtnCount, cartCount, cartItems } from "../core/selector";
+import { app, calculateTotalAmount, cartBtnCount, cartCount, cartItems, synth, utterance } from "../core/selector";
 import { removeCartBtnHandler } from "./product";
 
 
@@ -78,6 +78,8 @@ export const cartObserver = () => {
     calculateTotalAmount.innerText = calculateCartTotalAmount();
   cartCount.innerText = calculateCartCount();
   cartBtnCount.innerText=calculateCartCount();
+  utterance.text = calculateTotalAmount.innerText;
+  synth.speak(utterance);
   });
   observer.observe(cartItems,observerOptions)
 };
